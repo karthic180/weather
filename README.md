@@ -1,30 +1,24 @@
 
 ```markdown
-# Weather App
+### Weather App
 
 This is a simple Python-based weather app that retrieves current weather information for a given city using web scraping. The app scrapes weather data from the `wttr.in` website and displays the condition and temperature for the specified location.
 
-## Features
+### Features
 - Get current weather information (condition and temperature) for any city.
 - No API key required.
 - Simple and lightweight solution using web scraping.
 
-## Requirements
+### Requirements
 - Python 3.x
 - `requests` library
 - `beautifulsoup4` library (optional for other scraping purposes, but not required for this particular method)
 
-## Installation
+### Installation
 
 To run the weather app on your local machine, follow these steps:
 
 ### 1. Clone the Repository
-First, clone this repository to your local machine:
-
-```bash
-git clone https://github.com/your-username/weather-app.git
-cd weather-app
-```
 
 ### 2. Install Required Libraries
 You need to install the required Python libraries. You can install them using `pip`:
