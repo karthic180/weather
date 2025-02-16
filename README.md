@@ -17,12 +17,9 @@ Before running the app, ensure you have the following installed:
 
 ## Installation
 
-Clone the repository:
 
    ```bash
    git clone https://github.com/karthic180/weather/blob/d3dbcfefc719dc56e13113cda1c1f69d3cdfb154/code
    cd
-   
-## Install required dependencies
 pip install requests
 
