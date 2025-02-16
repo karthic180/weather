@@ -1,0 +1,41 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+def umbrellaReminder():
+    # Ask the user for their location
+    city = input("Enter your location (e.g., London): ")
+    
+    # Create the URL and request instance
+    url = f"https://www.google.com/search?q=weather+{city}"
+    html = requests.get(url).content
+    
+    # Get raw data
+    soup = BeautifulSoup(html, 'html.parser')
+
+    try:
+        # Try to find the temperature and sky condition
+        temperature = soup.find('div', attrs={'class': 'BNeawe iBp4i AP7Wnd'}).text
+        time_sky = soup.find('div', attrs={'class': 'BNeawe tAd8D AP7Wnd'}).text
+        
+        # Format data
+        sky = time_sky.split('\n')[1]
+        
+        # Check if weather conditions suggest taking an umbrella
+        if sky == "Rainy" or sky == "Rain And Snow" or sky == "Showers" or sky == "Haze" or sky == "Cloudy":
+            subject = f"Umbrella Reminder for {city}"
+            body = f"Take an umbrella before leaving the house. Weather condition for today is {sky} and temperature is {temperature} in {city}."
+            
+            # Print the message in the terminal
+            print(subject)
+            print(body)
+            print("Reminder displayed in terminal.")  # Optional: Indicates that reminder was processed
+        else:
+            print(f"Weather in {city} is clear. No umbrella needed.")
+    
+    except AttributeError:
+        print("Couldn't fetch weather data. Please check the website structure.")
+
+
+# Call the umbrellaReminder function to test
+umbrellaReminder()
